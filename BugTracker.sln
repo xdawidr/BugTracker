@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker", "BugTracker\BugTracker.csproj", "{30F2BFE9-010E-487E-90CE-A6FD53E1B58E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker", "BugTracker\BugTracker.csproj", "{30F2BFE9-010E-487E-90CE-A6FD53E1B58E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F619D1B8-E79D-454A-8A30-0C8892532375}"
 EndProject
@@ -11,15 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{FA554D75-F191-4A78-A2DB-91D472C6994D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Application", "BugTracker.Application\BugTracker.Application.csproj", "{A2D36F55-9B73-44B7-92BE-85947CA81656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Application", "BugTracker.Application\BugTracker.Application.csproj", "{A2D36F55-9B73-44B7-92BE-85947CA81656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Common", "BugTracker.Common\BugTracker.Common.csproj", "{F7A50B51-8401-4DCD-A3E4-8BF69B0D45DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Common", "BugTracker.Common\BugTracker.Common.csproj", "{F7A50B51-8401-4DCD-A3E4-8BF69B0D45DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Domain", "BugTracker.Domain\BugTracker.Domain.csproj", "{0D12AD63-65B3-4DA1-A5AE-CAE58C177B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Domain", "BugTracker.Domain\BugTracker.Domain.csproj", "{0D12AD63-65B3-4DA1-A5AE-CAE58C177B6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Infrastructure", "BugTracker.Infrastructure\BugTracker.Infrastructure.csproj", "{26C7C971-9CB7-417F-BC00-144FF89E91F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Infrastructure", "BugTracker.Infrastructure\BugTracker.Infrastructure.csproj", "{26C7C971-9CB7-417F-BC00-144FF89E91F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Persistance", "BugTracker.Persistance\BugTracker.Persistance.csproj", "{C1A55156-5188-4742-9FBA-CAAEFCCD2BA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Persistance", "BugTracker.Persistance\BugTracker.Persistance.csproj", "{C1A55156-5188-4742-9FBA-CAAEFCCD2BA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FE3FB0C8-7D07-441D-87E6-F5D2A92BD2D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.UnitTests", "BugTracker.UnitTests\BugTracker.UnitTests.csproj", "{A719420A-562A-473B-9EA4-41CC2FD38BC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{C1A55156-5188-4742-9FBA-CAAEFCCD2BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1A55156-5188-4742-9FBA-CAAEFCCD2BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1A55156-5188-4742-9FBA-CAAEFCCD2BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A719420A-562A-473B-9EA4-41CC2FD38BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A719420A-562A-473B-9EA4-41CC2FD38BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A719420A-562A-473B-9EA4-41CC2FD38BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A719420A-562A-473B-9EA4-41CC2FD38BC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,7 @@ Global
 		{0D12AD63-65B3-4DA1-A5AE-CAE58C177B6B} = {F619D1B8-E79D-454A-8A30-0C8892532375}
 		{26C7C971-9CB7-417F-BC00-144FF89E91F5} = {F901368A-F101-4F49-8411-A6CF7294422B}
 		{C1A55156-5188-4742-9FBA-CAAEFCCD2BA5} = {F901368A-F101-4F49-8411-A6CF7294422B}
+		{A719420A-562A-473B-9EA4-41CC2FD38BC8} = {FE3FB0C8-7D07-441D-87E6-F5D2A92BD2D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A845FE3C-D252-4E36-831F-0E39DD8DA449}

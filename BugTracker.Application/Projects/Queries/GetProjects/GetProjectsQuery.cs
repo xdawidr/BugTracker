@@ -1,4 +1,4 @@
-﻿using BugTracker.Domain.Entity;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Application.Projects.Queries.GetProjects
 {
-    public class ProjectsDetailsVm
+    public class GetProjectsQuery : IRequest<ProjectsVm>
     {
-        ICollection<ProjectDto> Projects { get; set; }
     }
 }

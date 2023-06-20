@@ -7,7 +7,7 @@ using BugTracker.Service;
 using Microsoft.OpenApi.Models;
 using BugTracker;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); 
 
 // Add services to the container.
 builder.Services.AddPersistance(builder.Configuration);
@@ -41,6 +41,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy => policy.AllowAnyOrigin());
 });
+
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {

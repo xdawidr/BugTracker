@@ -15,14 +15,12 @@ namespace BugTracker.Application.Projects.Queries.GetProjectDetail
     {
         private readonly IBugDbContext _bugDbContext;
         private IMapper _mapper;
-        private readonly ICurrentUserService currentUserService;
 
 
-        public GetProjectDetailQueryHandler(IBugDbContext bugDbContext, IMapper mapper, ICurrentUserService currentUserService)
+        public GetProjectDetailQueryHandler(IBugDbContext bugDbContext, IMapper mapper)
         {
             _bugDbContext = bugDbContext;
             _mapper = mapper;
-            this.currentUserService = currentUserService;
         }
 
         public async Task<ProjectDetailVm> Handle(GetProjectDetailQuery request, CancellationToken cancellationToken)

@@ -23,7 +23,8 @@ namespace BugTracker.Application.Projects.Commands.CreateProject
         {
             Project project = new ()
             {
-                Name = request.Name
+                Name = request.Name,
+                Description = request.Description,
             };
 
             _bugDbContext.Projects.Add(project);

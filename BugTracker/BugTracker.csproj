@@ -24,4 +24,9 @@
     <ProjectReference Include="..\BugTracker.Persistance\BugTracker.Persistance.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="BugTracker.IntegrationTests" />
+	</ItemGroup>
+
+
 </Project>
