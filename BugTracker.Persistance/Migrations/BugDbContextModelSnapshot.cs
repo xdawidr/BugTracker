@@ -17,7 +17,7 @@ namespace BugTracker.Persistance.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -43,6 +43,9 @@ namespace BugTracker.Persistance.Migrations
                     b.Property<string>("Environment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("InactivatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -77,13 +80,63 @@ namespace BugTracker.Persistance.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 6, 9, 16, 53, 31, 96, DateTimeKind.Local).AddTicks(7037),
+                            CreatedAt = new DateTime(2023, 8, 30, 10, 34, 4, 442, DateTimeKind.Local).AddTicks(2913),
                             Description = "This is first bug",
                             Environment = "DEV1",
                             Name = "First bug",
                             ProjectId = 1,
                             StatusId = 0
                         });
+                });
+
+            modelBuilder.Entity("BugTracker.Domain.Entity.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("BugId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("InactivatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("InactivedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BugId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("BugTracker.Domain.Entity.Project", b =>
@@ -101,7 +154,6 @@ namespace BugTracker.Persistance.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InactivatedBy")
@@ -132,7 +184,7 @@ namespace BugTracker.Persistance.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 6, 9, 16, 53, 31, 96, DateTimeKind.Local).AddTicks(6821),
+                            CreatedAt = new DateTime(2023, 8, 30, 10, 34, 4, 442, DateTimeKind.Local).AddTicks(2213),
                             Description = "Example first project",
                             Name = "First project",
                             StatusId = 0
@@ -148,6 +200,26 @@ namespace BugTracker.Persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("BugTracker.Domain.Entity.Comment", b =>
+                {
+                    b.HasOne("BugTracker.Domain.Entity.Bug", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("BugId");
+
+                    b.HasOne("BugTracker.Domain.Entity.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("BugTracker.Domain.Entity.Bug", b =>
+                {
+                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("BugTracker.Domain.Entity.Project", b =>

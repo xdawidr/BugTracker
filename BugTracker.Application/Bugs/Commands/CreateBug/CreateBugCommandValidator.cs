@@ -1,10 +1,4 @@
-﻿using BugTracker.Application.Projects.Commands.CreateProject;
-using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 
 namespace BugTracker.Application.Bugs.Commands.CreateBug
 {
@@ -12,7 +6,7 @@ namespace BugTracker.Application.Bugs.Commands.CreateBug
     {
         public CreateBugCommandValidator()
         {
-            RuleFor(x => x.Name).NotEmpty();
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(50);
             RuleFor(x => x.Description).NotEmpty();
             RuleFor(x => x.Environment).NotEmpty();
         }

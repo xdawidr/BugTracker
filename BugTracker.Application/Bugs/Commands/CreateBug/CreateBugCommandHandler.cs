@@ -1,13 +1,6 @@
 ﻿using BugTracker.Application.Common.Interfaces;
-using BugTracker.Application.Projects.Commands.CreateProject;
 using BugTracker.Domain.Entity;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace BugTracker.Application.Bugs.Commands.CreateBug
 {

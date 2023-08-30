@@ -1,5 +1,6 @@
 ﻿using BugTracker.Application.Bugs.Commands.CreateBug;
 using BugTracker.Application.Bugs.Commands.DeleteBug;
+using BugTracker.Application.Bugs.Commands.UpdateBug;
 using BugTracker.Application.Bugs.Queries.GetBugDetail;
 using BugTracker.Application.Projects.Commands.DeleteProject;
 using Microsoft.AspNetCore.Authorization;
@@ -25,6 +26,14 @@ namespace BugTracker.Controllers
             var result = await Mediator.Send(command);
 
             return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateBug(UpdateBugCommand command)
+        {
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete]

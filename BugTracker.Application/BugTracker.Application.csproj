@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Bugs\Commands\UpdateBug\" />
     <Folder Include="Projects\Commands\UpdateProject\" />
   </ItemGroup>
 

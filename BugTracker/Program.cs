@@ -7,8 +7,14 @@ using BugTracker.Service;
 using Microsoft.OpenApi.Models;
 using BugTracker;
 
-var builder = WebApplication.CreateBuilder(args); 
+var builder = WebApplication.CreateBuilder(args);
 
+//optional line to resolve problem with identity
+builder.Services.AddControllersWithViews()
+    .ConfigureApplicationPartManager(apm => {
+        apm.ApplicationParts
+        .Remove(apm.ApplicationParts.Single(ap => ap.Name == "Microsoft.AspNetCore.ApiAuthorization.IdentityServer"));
+    });
 // Add services to the container.
 builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddApplication();
